@@ -21,13 +21,15 @@ view(midwest)
 ## Exercise 1
 
 (Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
-```{r}
+```{r ex-1}
+#| label: Ex-1
 ggplot(data = midwest, 
        mapping = aes(x = popdensity)) +
   geom_histogram(alpha = 1, binwidth = 10000) + 
   labs(
     x = "Population density",
-    y = "count"
+    y = "Count", 
+    title = "Population Densities of the Midwest"
   )
 ```
 The distribution is skewed to the right. 
@@ -37,10 +39,24 @@ Above, we can see some data in between the bin of 75000 and 100000, which is far
 ## Exercise 2
 
 (Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+```{r}
+scale_color_viridis_d()
+```
 
+```{r}
+ggplot(data = midwest, 
+       mapping = aes(x = percollege, y = percbelowpoverty, color = state)) +
+  scale_color_viridis_d() +
+  geom_point() + 
+  labs(
+    x = "PercOfPeople w/College Degree",
+    y = "PercOfPeople Below Poverty", 
+    title = "% College Degrees v. % Below Poverty "
+  ) 
+```
 ## Exercise 3
 
-(Type your answer to Exercise 3 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+What I observe is that there is a negative association, but not too extreme. Almost all of the states have a great distribution of counties where the percent of college degrees is between 10-30 percent havea percentage of people below the poverty line between 5-20 percent. 
 
 ## Exercise 4
 

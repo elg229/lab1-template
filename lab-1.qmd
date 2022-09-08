@@ -67,10 +67,24 @@ ggplot(data = midwest,
     title = "% College Degrees v. % Below Poverty",
     subtitle = "Per State"
   ) + 
-  facet_wrap(~ state, ncol = 5)
+  facet_wrap(~ state)
 ```
 
+I prefer the geom_smooth plot a lot better since it is showing the average of all the dots in a line. It is easier to read but it is harder to find outliers since it doesn't show you the specific points. 
+
 ## Exercise 5
+
+```{r}
+ggplot(midwest, aes(x = state, y=area, fill=state)) +
+  geom_boxplot() +
+  scale_color_viridis_d() +
+  labs(
+    x = "",
+    y = "area", 
+    title = "area v state",
+  ) 
+```
+
 
 ## Exercise 6
 

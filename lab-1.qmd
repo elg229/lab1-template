@@ -34,11 +34,9 @@ ggplot(data = midwest,
 ```
 The distribution is skewed to the right. 
 
-Above, we can see some data in between the bin of 75000 and 100000, which is far from most of the data sitting near 0.
+Above, we can see some data in between the bin of 75000 and 100000, our outliers, which is far from most of the data sitting near 0.
 
 ## Exercise 2
-
-(Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
 
 ```{r}
 ggplot(data = midwest, 
@@ -53,7 +51,7 @@ ggplot(data = midwest,
 ```
 ## Exercise 3
 
-What I observe is that there is a negative association, but not too extreme. Almost all of the states have a great distribution of counties where the percent of college degrees is between 10-30 percent havea percentage of people below the poverty line between 5-20 percent. 
+What I observe is that there is a negative association, but not too extreme. Almost all of the states have a great distribution of counties where the percent of college degrees is between 10-30 percent and have a percentage of people below the poverty line between 5-20 percent. I do think that IL has the most notable curve that expresses the relationship where less college degrees means more people under the poverty line. 
 
 ## Exercise 4
 ```{r ex-4}
@@ -79,13 +77,31 @@ ggplot(midwest, aes(x = state, y=area, fill=state)) +
   geom_boxplot() +
   scale_color_viridis_d() +
   labs(
-    x = "",
+    x = "State",
     y = "area", 
     title = "area v state",
   ) 
 ```
+We can observe here that WI has a higher average of area in counties compared to the other states. All the other four states share a pretty similar mean but do have varying Quartiles and whiskers. 
 
+The state that has the largest single county is MI. We can tell by its placement far above the others, acting as an outlier. 
 
 ## Exercise 6
+
+```{r}
+midwest <- midwest |>
+  mutate(metro = if_else(inmetro == 1, "Yes", "No"))
+```
+```{r}
+ggplot(midwest, aes(x = state, fill = metro)) +
+  geom_bar(position = "fill") +
+  scale_color_viridis_d() +
+  labs(
+    x = "State",
+    y = "% of Counties", 
+    title = "Metro v Non-Metro Counties",
+  ) 
+```
+I noticed that IN and OH have almost 50% of their counties considered "metropolitan".
 
 ## Exercise 7

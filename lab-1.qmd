@@ -20,7 +20,6 @@ view(midwest)
 
 ## Exercise 1
 
-(Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
 ```{r ex-1}
 #| label: Ex-1
 ggplot(data = midwest, 
@@ -32,13 +31,14 @@ ggplot(data = midwest,
     title = "Population Densities of the Midwest"
   )
 ```
-The distribution is skewed to the right. 
+The distribution is skewed to the right.
 
 Above, we can see some data in between the bin of 75000 and 100000, our outliers, which is far from most of the data sitting near 0.
 
 ## Exercise 2
 
 ```{r}
+#| label: Ex-2
 ggplot(data = midwest, 
        mapping = aes(x = percollege, y = percbelowpoverty, color = state)) +
   scale_color_viridis_d() +
@@ -55,6 +55,7 @@ What I observe is that there is a negative association, but not too extreme. Alm
 
 ## Exercise 4
 ```{r ex-4}
+#| label: Ex-4
 ggplot(data = midwest, 
        mapping = aes(x = percollege, y = percbelowpoverty, color = state)) +
   scale_color_viridis_d() + 
@@ -73,6 +74,7 @@ I prefer the geom_smooth plot a lot better since it is showing the average of al
 ## Exercise 5
 
 ```{r}
+#| label: Ex-5
 ggplot(midwest, aes(x = state, y=area, fill=state)) +
   geom_boxplot() +
   scale_color_viridis_d() +
@@ -89,6 +91,7 @@ The state that has the largest single county is MI. We can tell by its placement
 ## Exercise 6
 
 ```{r}
+#| label: Ex-6
 midwest <- midwest |>
   mutate(metro = if_else(inmetro == 1, "Yes", "No"))
 ```
@@ -107,6 +110,7 @@ I noticed that IN and OH have almost 50% of their counties considered "metropoli
 ## Exercise 7
 
 ```{r}
+#| label: Ex-7
 ggplot(midwest, 
        mapping = aes(x = percollege, y = popdensity, color = percbelowpoverty)) +
   geom_point(size = 2, alpha = 0.5) +
